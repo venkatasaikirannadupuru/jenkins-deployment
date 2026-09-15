@@ -89,10 +89,5 @@ resource "aws_lambda_permission" "api_gateway" {
   function_name = aws_lambda_function.employee_management.function_name
   principal     = "apigateway.amazonaws.com"
 
-  source_arn = "${aws_apigatewayv2_api.employee_api.execution_arn}/*/*"
-}
-
-output "api_url" {
-  description = "Employee Management API URL"
-  value       = "${aws_apigatewayv2_api.employee_api.api_endpoint}/employees"
+  source_arn = "${aws_apigatewayv2_api.employee_api.execution_arn}/*/*
 }
