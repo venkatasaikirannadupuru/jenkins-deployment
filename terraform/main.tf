@@ -89,5 +89,5 @@ resource "aws_lambda_permission" "api_gateway" {
   function_name = aws_lambda_function.employee_management.function_name
   principal     = "apigateway.amazonaws.com"
 
-  source_arn = "${aws_apigatewayv2_api.employee_api.execution_arn}/*/*
+  source_arn = "${aws_apigatewayv2_api.employee_api.execution_arn}/*/*"
 }
