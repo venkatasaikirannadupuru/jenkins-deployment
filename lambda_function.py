@@ -1,8 +1,36 @@
 import json
 
+
 def lambda_handler(event, context):
-    # TODO implement
+
+    employees = [
+        {
+            "id": 101,
+            "name": "Sai Kiran",
+            "role": "Cloud Engineer",
+            "department": "IT"
+        },
+        {
+            "id": 102,
+            "name": "Rahul",
+            "role": "Software Engineer",
+            "department": "Development"
+        },
+        {
+            "id": 103,
+            "name": "Priya",
+            "role": "Data Analyst",
+            "department": "Analytics"
+        }
+    ]
+
     return {
-        'statusCode': 200,
-        'body': json.dumps('Hello from Middleware! TEST Lambda Function')
+        "statusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps({
+            "message": "Employee Management Application",
+            "employees": employees
+        })
     }
