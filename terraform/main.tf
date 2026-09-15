@@ -61,7 +61,13 @@ resource "aws_lambda_function" "employee_management" {
 resource "aws_apigatewayv2_api" "employee_api" {
   name          = "employee-management-api"
   protocol_type = "HTTP"
+  cors_configuration {
+    allow_origins = ["*"]
+    allow_methods = ["GET"]
+    allow_headers = ["content-type"]
+  }
 }
+
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {
   api_id                 = aws_apigatewayv2_api.employee_api.id
